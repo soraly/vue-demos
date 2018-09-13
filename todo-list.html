@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body >
+	<div id='root'>
+		<input type="text" v-model=name> 
+		<button @click="handleSubmit()">提交 </button>
+	
+	<div id='vue'>
+		
+		<ul>
+			<li v-for='(item,index) of list'>{{item}}</li>
+		</ul>
+	</div>
+	</div>
+	
+	<script>
+	   var app = new Vue({
+	   	el: '#root',
+	   	data: {
+	   		name: 'xiang',
+	   		list: []
+	   	},
+	   	methods:{
+	   		
+	   		handleSubmit:()=>{ //如果用了function，就可以直接用this
+	   			var _this = this;
+	   			app.list.push(app.name);
+	   			app.name = ''
+	   		}
+	   	}
+	   })
+	</script>
+</body>
+</html>
